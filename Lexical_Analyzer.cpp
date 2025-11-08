@@ -1,21 +1,13 @@
 #include <iostream>
+#include "Lexical_Analyzer.h"
 #include <string>
 #include <fstream>
 #include <vector>
 #include <cctype>
 using namespace std;
 
-string IdentifierFSM(const string &input);
-string NumberFSM(const string &input);
-string checkKeyword(const string &input);
-string checkOperator(const string &input);
-string checkSeparator(const string &input);
 
-struct Token
-{
-	vector<string> token;
-	vector<string> lexeme;
-};
+
 
 Token lexer(ifstream &myFile)
 {
@@ -300,50 +292,50 @@ string checkSeparator(const string &input)
 	}
 }
 
-int main()
-{
-    // Input and output filenames
-    vector<string> inputFiles = { "Rat25f.txt", "Rat25f2.txt", "Rat25f3.txt" };
-    vector<string> outputFiles = { "output.txt", "output2.txt", "output3.txt" };
+// int main()
+// {
+//     // Input and output filenames
+//     vector<string> inputFiles = { "Rat25f.txt", "Rat25f2.txt", "Rat25f3.txt" };
+//     vector<string> outputFiles = { "output.txt", "output2.txt", "output3.txt" };
 
-    // Making sure the vectors match in size
-    if (inputFiles.size() != outputFiles.size())
-    {
-        cerr << "Error: Input and output file lists do not match in size." << endl;
-        return 1;
-    }
+//     // Making sure the vectors match in size
+//     if (inputFiles.size() != outputFiles.size())
+//     {
+//         cerr << "Error: Input and output file lists do not match in size." << endl;
+//         return 1;
+//     }
 
-    for (size_t i = 0; i < inputFiles.size(); i++)
-    {
-        ifstream myFile(inputFiles[i]);
-        ofstream outFile(outputFiles[i]);
+//     for (size_t i = 0; i < inputFiles.size(); i++)
+//     {
+//         ifstream myFile(inputFiles[i]);
+//         ofstream outFile(outputFiles[i]);
 
-        if (!myFile)
-        {
-            cerr << "Error opening input file: " << inputFiles[i] << endl;
-            continue; 
-        }
+//         if (!myFile)
+//         {
+//             cerr << "Error opening input file: " << inputFiles[i] << endl;
+//             continue; 
+//         }
 
-        if (!outFile)
-        {
-            cerr << "Error opening output file: " << outputFiles[i] << endl;
-            myFile.close();
-            continue;
-        }
+//         if (!outFile)
+//         {
+//             cerr << "Error opening output file: " << outputFiles[i] << endl;
+//             myFile.close();
+//             continue;
+//         }
 
-        cout << "Processing " << inputFiles[i] << " -> " << outputFiles[i] << endl;
+//         cout << "Processing " << inputFiles[i] << " -> " << outputFiles[i] << endl;
 
-        Token t = lexer(myFile);
+//         Token t = lexer(myFile);
 
-        for (size_t j = 0; j < t.lexeme.size(); j++)
-        {
-            outFile << t.token[j] << " " << t.lexeme[j] << endl;
-            cout << t.token[j] << " " << t.lexeme[j] << endl;
-        }
+//         for (size_t j = 0; j < t.lexeme.size(); j++)
+//         {
+//             outFile << t.token[j] << " " << t.lexeme[j] << endl;
+//             cout << t.token[j] << " " << t.lexeme[j] << endl;
+//         }
 
-        myFile.close();
-        outFile.close();
-    }
+//         myFile.close();
+//         outFile.close();
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
