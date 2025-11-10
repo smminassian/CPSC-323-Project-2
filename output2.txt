@@ -48,107 +48,107 @@ Starting Syntax Analysis...
 <Opt Function Definitions> -> <Function Definitions>
 <Function Definitions> -> <Function> <Function Definitions> | <Function>
 <Function> -> function <Identifier> ( <Opt Parameter List> ) <Opt Declaration List> <Body>
-Token: function   (matched 'function')
-Token: convert   (matched 'convert')
-Token: (   (matched '(')
+identifier function
+identifier convert
+separator  (
 <Opt Parameter List> -> <Parameter List>
 <Parameter List> -> <Parameter> ( , <Parameter> )*
 <Parameter> -> <IDs> <Qualifier>
 <IDs> -> <Identifier> ( , <Identifier> )*
-Token: fahr   (matched 'fahr')
+identifier fahr
 <Qualifier> -> integer | boolean | real
-Token: integer   (matched 'integer')
-Token: )   (matched ')')
+identifier integer
+separator  )
 <Opt Declaration List> -> ε
 <Body> -> { <Statement List> }
-Token: {   (matched '{')
+separator  {
 <Statement List> -> (<Statement>)*
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: convert   (matched 'convert')
-Token: =   (matched '=')
+identifier convert
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 5   (matched '5')
+integer  5
 <TermPrime> -> * <Factor> <TermPrime>
-Token: *   (matched '*')
+operator  *
 <Factor> -> <Primary>
 <Primary> -> ( <Expression> )
-Token: (   (matched '(')
+separator  (
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: fahr   (matched 'fahr')
+identifier fahr
 <TermPrime> -> ε
 <ExpressionPrime> -> - <Term> <ExpressionPrime>
-Token: -   (matched '-')
+operator  -
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 32   (matched '32')
+integer  32
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: )   (matched ')')
+separator  )
 <TermPrime> -> / <Factor> <TermPrime>
-Token: /   (matched '/')
+operator  /
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 9   (matched '9')
+integer  9
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
-Token: }   (matched '}')
-Token: #   (matched '#')
+separator  ;
+separator  }
+invalid #
 <Opt Declaration List> -> <Declaration List>
 <Declaration List> -> <Declaration> ; ( <Declaration> ; )*
 <Declaration> -> <Qualifier> <IDs>
 <Qualifier> -> integer | boolean | real
-Token: integer   (matched 'integer')
+identifier integer
 <IDs> -> <Identifier> ( , <Identifier> )*
-Token: low   (matched 'low')
-Token: ,   (matched ',')
-Token: high   (matched 'high')
-Token: ,   (matched ',')
-Token: step   (matched 'step')
-Token: ;   (matched ';')
+identifier low
+separator  ,
+identifier high
+separator  ,
+identifier step
+separator  ;
 <Statement List> -> (<Statement>)*
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: low   (matched 'low')
-Token: =   (matched '=')
+identifier low
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 0   (matched '0')
+integer  0
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: high   (matched 'high')
-Token: =   (matched '=')
+identifier high
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 100   (matched '100')
+integer  100
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: step   (matched 'step')
-Token: =   (matched '=')
+identifier step
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 10   (matched '10')
+integer  10
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 Parsing completed successfully.

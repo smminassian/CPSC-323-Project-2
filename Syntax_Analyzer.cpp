@@ -85,6 +85,11 @@ string currentLexeme() {
     return ""; 
 }
 
+string currentToken() {
+	if (indexPos < (int)globalToken.token.size()) return globalToken.token[indexPos];
+	return "";
+}
+
 bool atEnd() {
     return indexPos >= (int)globalToken.lexeme.size();
 }
@@ -99,14 +104,19 @@ void Match(const string &expected) {
     if (atEnd()) {
         syntaxError("Expected '" + expected + "' but found EOF");
     }
-    string cur = currentLexeme();
-    if (cur == expected) {
-        if (printSwitch) cout << "Token: " << cur << "   (matched '" << expected << "')" << endl;
+
+    string cur = currentToken();
+    string lex = currentLexeme();
+
+    if (cur == expected || lex == expected) {
+        if (printSwitch)
+            cout << cur << " " << lex << endl;  
         indexPos++;
     } else {
         syntaxError("Expected '" + expected + "' but found '" + cur + "'");
     }
 }
+
 
 
 // parsing functions

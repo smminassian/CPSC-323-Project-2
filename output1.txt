@@ -16,33 +16,33 @@ Starting Syntax Analysis...
 
 <Rat25F> -> <Opt Function Definitions> # <Opt Declaration List> <Statement List>
 <Opt Function Definitions> -> ε
-Token: #   (matched '#')
+invalid #
 <Opt Declaration List> -> <Declaration List>
 <Declaration List> -> <Declaration> ; ( <Declaration> ; )*
 <Declaration> -> <Qualifier> <IDs>
 <Qualifier> -> integer | boolean | real
-Token: integer   (matched 'integer')
+identifier integer
 <IDs> -> <Identifier> ( , <Identifier> )*
-Token: c   (matched 'c')
-Token: ;   (matched ';')
+identifier c
+separator  ;
 <Statement List> -> (<Statement>)*
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: c   (matched 'c')
-Token: =   (matched '=')
+identifier c
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: a   (matched 'a')
+identifier a
 <TermPrime> -> ε
 <ExpressionPrime> -> + <Term> <ExpressionPrime>
-Token: +   (matched '+')
+operator  +
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: b   (matched 'b')
+identifier b
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 Parsing completed successfully.

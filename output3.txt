@@ -126,317 +126,317 @@ Starting Syntax Analysis...
 <Opt Function Definitions> -> <Function Definitions>
 <Function Definitions> -> <Function> <Function Definitions> | <Function>
 <Function> -> function <Identifier> ( <Opt Parameter List> ) <Opt Declaration List> <Body>
-Token: function   (matched 'function')
-Token: computeSum   (matched 'computeSum')
-Token: (   (matched '(')
+identifier function
+identifier computeSum
+separator  (
 <Opt Parameter List> -> <Parameter List>
 <Parameter List> -> <Parameter> ( , <Parameter> )*
 <Parameter> -> <IDs> <Qualifier>
 <IDs> -> <Identifier> ( , <Identifier> )*
-Token: a   (matched 'a')
+identifier a
 <Qualifier> -> integer | boolean | real
-Token: integer   (matched 'integer')
-Token: ,   (matched ',')
+identifier integer
+separator  ,
 <Parameter> -> <IDs> <Qualifier>
 <IDs> -> <Identifier> ( , <Identifier> )*
-Token: b   (matched 'b')
+identifier b
 <Qualifier> -> integer | boolean | real
-Token: integer   (matched 'integer')
-Token: )   (matched ')')
+identifier integer
+separator  )
 <Opt Declaration List> -> ε
 <Body> -> { <Statement List> }
-Token: {   (matched '{')
+separator  {
 <Statement List> -> (<Statement>)*
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: result   (matched 'result')
-Token: =   (matched '=')
+identifier result
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: a   (matched 'a')
+identifier a
 <TermPrime> -> ε
 <ExpressionPrime> -> + <Term> <ExpressionPrime>
-Token: +   (matched '+')
+operator  +
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: b   (matched 'b')
+identifier b
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
-Token: }   (matched '}')
-Token: #   (matched '#')
+separator  ;
+separator  }
+invalid #
 <Opt Declaration List> -> <Declaration List>
 <Declaration List> -> <Declaration> ; ( <Declaration> ; )*
 <Declaration> -> <Qualifier> <IDs>
 <Qualifier> -> integer | boolean | real
-Token: integer   (matched 'integer')
+identifier integer
 <IDs> -> <Identifier> ( , <Identifier> )*
-Token: x   (matched 'x')
-Token: ,   (matched ',')
-Token: y   (matched 'y')
-Token: ,   (matched ',')
-Token: z   (matched 'z')
-Token: ;   (matched ';')
+identifier x
+separator  ,
+identifier y
+separator  ,
+identifier z
+separator  ;
 <Declaration> -> <Qualifier> <IDs>
 <Qualifier> -> integer | boolean | real
-Token: integer   (matched 'integer')
+identifier integer
 <IDs> -> <Identifier> ( , <Identifier> )*
-Token: total   (matched 'total')
-Token: ,   (matched ',')
-Token: average   (matched 'average')
-Token: ,   (matched ',')
-Token: count   (matched 'count')
-Token: ;   (matched ';')
+identifier total
+separator  ,
+identifier average
+separator  ,
+identifier count
+separator  ;
 <Declaration> -> <Qualifier> <IDs>
 <Qualifier> -> integer | boolean | real
-Token: real   (matched 'real')
+identifier real
 <IDs> -> <Identifier> ( , <Identifier> )*
-Token: rate   (matched 'rate')
-Token: ,   (matched ',')
-Token: time   (matched 'time')
-Token: ,   (matched ',')
-Token: distance   (matched 'distance')
-Token: ;   (matched ';')
+identifier rate
+separator  ,
+identifier time
+separator  ,
+identifier distance
+separator  ;
 <Declaration> -> <Qualifier> <IDs>
 <Qualifier> -> integer | boolean | real
-Token: boolean   (matched 'boolean')
+identifier boolean
 <IDs> -> <Identifier> ( , <Identifier> )*
-Token: flag   (matched 'flag')
-Token: ;   (matched ';')
+identifier flag
+separator  ;
 <Statement List> -> (<Statement>)*
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: x   (matched 'x')
-Token: =   (matched '=')
+identifier x
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 5   (matched '5')
+integer  5
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: y   (matched 'y')
-Token: =   (matched '=')
+identifier y
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 10   (matched '10')
+integer  10
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: z   (matched 'z')
-Token: =   (matched '=')
+identifier z
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 20   (matched '20')
+integer  20
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: total   (matched 'total')
-Token: =   (matched '=')
+identifier total
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: x   (matched 'x')
+identifier x
 <TermPrime> -> ε
 <ExpressionPrime> -> + <Term> <ExpressionPrime>
-Token: +   (matched '+')
+operator  +
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: y   (matched 'y')
+identifier y
 <TermPrime> -> ε
 <ExpressionPrime> -> + <Term> <ExpressionPrime>
-Token: +   (matched '+')
+operator  +
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: z   (matched 'z')
+identifier z
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: average   (matched 'average')
-Token: =   (matched '=')
+identifier average
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: total   (matched 'total')
+identifier total
 <TermPrime> -> / <Factor> <TermPrime>
-Token: /   (matched '/')
+operator  /
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 3   (matched '3')
+integer  3
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: rate   (matched 'rate')
-Token: =   (matched '=')
+identifier rate
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 2   (matched '2')
+integer  2
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: time   (matched 'time')
-Token: =   (matched '=')
+identifier time
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 4   (matched '4')
+integer  4
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: distance   (matched 'distance')
-Token: =   (matched '=')
+identifier distance
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: rate   (matched 'rate')
+identifier rate
 <TermPrime> -> * <Factor> <TermPrime>
-Token: *   (matched '*')
+operator  *
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: time   (matched 'time')
+identifier time
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: flag   (matched 'flag')
-Token: =   (matched '=')
+identifier flag
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: true   (matched 'true')
+identifier true
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: x   (matched 'x')
-Token: =   (matched '=')
+identifier x
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: x   (matched 'x')
+identifier x
 <TermPrime> -> ε
 <ExpressionPrime> -> + <Term> <ExpressionPrime>
-Token: +   (matched '+')
+operator  +
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 1   (matched '1')
+integer  1
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: y   (matched 'y')
-Token: =   (matched '=')
+identifier y
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: y   (matched 'y')
+identifier y
 <TermPrime> -> ε
 <ExpressionPrime> -> + <Term> <ExpressionPrime>
-Token: +   (matched '+')
+operator  +
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 2   (matched '2')
+integer  2
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: z   (matched 'z')
-Token: =   (matched '=')
+identifier z
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: z   (matched 'z')
+identifier z
 <TermPrime> -> ε
 <ExpressionPrime> -> + <Term> <ExpressionPrime>
-Token: +   (matched '+')
+operator  +
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 3   (matched '3')
+integer  3
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: total   (matched 'total')
-Token: =   (matched '=')
+identifier total
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: x   (matched 'x')
+identifier x
 <TermPrime> -> ε
 <ExpressionPrime> -> + <Term> <ExpressionPrime>
-Token: +   (matched '+')
+operator  +
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: y   (matched 'y')
+identifier y
 <TermPrime> -> ε
 <ExpressionPrime> -> + <Term> <ExpressionPrime>
-Token: +   (matched '+')
+operator  +
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: z   (matched 'z')
+identifier z
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 <Statement> -> <Assign>
 <Assign> -> <Identifier> = <Expression> ;
-Token: average   (matched 'average')
-Token: =   (matched '=')
+identifier average
+operator  =
 <Expression> -> <Term> <ExpressionPrime>
 <Term> -> <Factor> <TermPrime>
 <Factor> -> <Primary>
 <Primary> -> <Identifier>
-Token: total   (matched 'total')
+identifier total
 <TermPrime> -> / <Factor> <TermPrime>
-Token: /   (matched '/')
+operator  /
 <Factor> -> <Primary>
 <Primary> -> <Integer|Real>
-Token: 3   (matched '3')
+integer  3
 <TermPrime> -> ε
 <ExpressionPrime> -> ε
-Token: ;   (matched ';')
+separator  ;
 Parsing completed successfully.
