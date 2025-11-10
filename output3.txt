@@ -1,0 +1,442 @@
+Processing Rat25f3.txt...
+Starting lexical analysis...
+Lexical Analysis Complete. Tokens and Lexemes will be printed:
+0: TokenType: identifier  Lexeme: function
+1: TokenType: identifier  Lexeme: computeSum
+2: TokenType: separator   Lexeme: (
+3: TokenType: identifier  Lexeme: a
+4: TokenType: identifier  Lexeme: integer
+5: TokenType: separator   Lexeme: ,
+6: TokenType: identifier  Lexeme: b
+7: TokenType: identifier  Lexeme: integer
+8: TokenType: separator   Lexeme: )
+9: TokenType: separator   Lexeme: {
+10: TokenType: identifier  Lexeme: result
+11: TokenType: operator   Lexeme: =
+12: TokenType: identifier  Lexeme: a
+13: TokenType: operator   Lexeme: +
+14: TokenType: identifier  Lexeme: b
+15: TokenType: separator   Lexeme: ;
+16: TokenType: separator   Lexeme: }
+17: TokenType: invalid  Lexeme: #
+18: TokenType: identifier  Lexeme: integer
+19: TokenType: identifier  Lexeme: x
+20: TokenType: separator   Lexeme: ,
+21: TokenType: identifier  Lexeme: y
+22: TokenType: separator   Lexeme: ,
+23: TokenType: identifier  Lexeme: z
+24: TokenType: separator   Lexeme: ;
+25: TokenType: identifier  Lexeme: integer
+26: TokenType: identifier  Lexeme: total
+27: TokenType: separator   Lexeme: ,
+28: TokenType: identifier  Lexeme: average
+29: TokenType: separator   Lexeme: ,
+30: TokenType: identifier  Lexeme: count
+31: TokenType: separator   Lexeme: ;
+32: TokenType: identifier  Lexeme: real
+33: TokenType: identifier  Lexeme: rate
+34: TokenType: separator   Lexeme: ,
+35: TokenType: identifier  Lexeme: time
+36: TokenType: separator   Lexeme: ,
+37: TokenType: identifier  Lexeme: distance
+38: TokenType: separator   Lexeme: ;
+39: TokenType: identifier  Lexeme: boolean
+40: TokenType: identifier  Lexeme: flag
+41: TokenType: separator   Lexeme: ;
+42: TokenType: identifier  Lexeme: x
+43: TokenType: operator   Lexeme: =
+44: TokenType: integer   Lexeme: 5
+45: TokenType: separator   Lexeme: ;
+46: TokenType: identifier  Lexeme: y
+47: TokenType: operator   Lexeme: =
+48: TokenType: integer   Lexeme: 10
+49: TokenType: separator   Lexeme: ;
+50: TokenType: identifier  Lexeme: z
+51: TokenType: operator   Lexeme: =
+52: TokenType: integer   Lexeme: 20
+53: TokenType: separator   Lexeme: ;
+54: TokenType: identifier  Lexeme: total
+55: TokenType: operator   Lexeme: =
+56: TokenType: identifier  Lexeme: x
+57: TokenType: operator   Lexeme: +
+58: TokenType: identifier  Lexeme: y
+59: TokenType: operator   Lexeme: +
+60: TokenType: identifier  Lexeme: z
+61: TokenType: separator   Lexeme: ;
+62: TokenType: identifier  Lexeme: average
+63: TokenType: operator   Lexeme: =
+64: TokenType: identifier  Lexeme: total
+65: TokenType: operator   Lexeme: /
+66: TokenType: integer   Lexeme: 3
+67: TokenType: separator   Lexeme: ;
+68: TokenType: identifier  Lexeme: rate
+69: TokenType: operator   Lexeme: =
+70: TokenType: integer   Lexeme: 2
+71: TokenType: separator   Lexeme: ;
+72: TokenType: identifier  Lexeme: time
+73: TokenType: operator   Lexeme: =
+74: TokenType: integer   Lexeme: 4
+75: TokenType: separator   Lexeme: ;
+76: TokenType: identifier  Lexeme: distance
+77: TokenType: operator   Lexeme: =
+78: TokenType: identifier  Lexeme: rate
+79: TokenType: operator   Lexeme: *
+80: TokenType: identifier  Lexeme: time
+81: TokenType: separator   Lexeme: ;
+82: TokenType: identifier  Lexeme: flag
+83: TokenType: operator   Lexeme: =
+84: TokenType: identifier  Lexeme: true
+85: TokenType: separator   Lexeme: ;
+86: TokenType: identifier  Lexeme: x
+87: TokenType: operator   Lexeme: =
+88: TokenType: identifier  Lexeme: x
+89: TokenType: operator   Lexeme: +
+90: TokenType: integer   Lexeme: 1
+91: TokenType: separator   Lexeme: ;
+92: TokenType: identifier  Lexeme: y
+93: TokenType: operator   Lexeme: =
+94: TokenType: identifier  Lexeme: y
+95: TokenType: operator   Lexeme: +
+96: TokenType: integer   Lexeme: 2
+97: TokenType: separator   Lexeme: ;
+98: TokenType: identifier  Lexeme: z
+99: TokenType: operator   Lexeme: =
+100: TokenType: identifier  Lexeme: z
+101: TokenType: operator   Lexeme: +
+102: TokenType: integer   Lexeme: 3
+103: TokenType: separator   Lexeme: ;
+104: TokenType: identifier  Lexeme: total
+105: TokenType: operator   Lexeme: =
+106: TokenType: identifier  Lexeme: x
+107: TokenType: operator   Lexeme: +
+108: TokenType: identifier  Lexeme: y
+109: TokenType: operator   Lexeme: +
+110: TokenType: identifier  Lexeme: z
+111: TokenType: separator   Lexeme: ;
+112: TokenType: identifier  Lexeme: average
+113: TokenType: operator   Lexeme: =
+114: TokenType: identifier  Lexeme: total
+115: TokenType: operator   Lexeme: /
+116: TokenType: integer   Lexeme: 3
+117: TokenType: separator   Lexeme: ;
+
+Starting Syntax Analysis...
+
+<Rat25F> -> <Opt Function Definitions> # <Opt Declaration List> <Statement List>
+<Opt Function Definitions> -> <Function Definitions>
+<Function Definitions> -> <Function> <Function Definitions> | <Function>
+<Function> -> function <Identifier> ( <Opt Parameter List> ) <Opt Declaration List> <Body>
+Token: function   (matched 'function')
+Token: computeSum   (matched 'computeSum')
+Token: (   (matched '(')
+<Opt Parameter List> -> <Parameter List>
+<Parameter List> -> <Parameter> ( , <Parameter> )*
+<Parameter> -> <IDs> <Qualifier>
+<IDs> -> <Identifier> ( , <Identifier> )*
+Token: a   (matched 'a')
+<Qualifier> -> integer | boolean | real
+Token: integer   (matched 'integer')
+Token: ,   (matched ',')
+<Parameter> -> <IDs> <Qualifier>
+<IDs> -> <Identifier> ( , <Identifier> )*
+Token: b   (matched 'b')
+<Qualifier> -> integer | boolean | real
+Token: integer   (matched 'integer')
+Token: )   (matched ')')
+<Opt Declaration List> -> ε
+<Body> -> { <Statement List> }
+Token: {   (matched '{')
+<Statement List> -> (<Statement>)*
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: result   (matched 'result')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: a   (matched 'a')
+<TermPrime> -> ε
+<ExpressionPrime> -> + <Term> <ExpressionPrime>
+Token: +   (matched '+')
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: b   (matched 'b')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+Token: }   (matched '}')
+Token: #   (matched '#')
+<Opt Declaration List> -> <Declaration List>
+<Declaration List> -> <Declaration> ; ( <Declaration> ; )*
+<Declaration> -> <Qualifier> <IDs>
+<Qualifier> -> integer | boolean | real
+Token: integer   (matched 'integer')
+<IDs> -> <Identifier> ( , <Identifier> )*
+Token: x   (matched 'x')
+Token: ,   (matched ',')
+Token: y   (matched 'y')
+Token: ,   (matched ',')
+Token: z   (matched 'z')
+Token: ;   (matched ';')
+<Declaration> -> <Qualifier> <IDs>
+<Qualifier> -> integer | boolean | real
+Token: integer   (matched 'integer')
+<IDs> -> <Identifier> ( , <Identifier> )*
+Token: total   (matched 'total')
+Token: ,   (matched ',')
+Token: average   (matched 'average')
+Token: ,   (matched ',')
+Token: count   (matched 'count')
+Token: ;   (matched ';')
+<Declaration> -> <Qualifier> <IDs>
+<Qualifier> -> integer | boolean | real
+Token: real   (matched 'real')
+<IDs> -> <Identifier> ( , <Identifier> )*
+Token: rate   (matched 'rate')
+Token: ,   (matched ',')
+Token: time   (matched 'time')
+Token: ,   (matched ',')
+Token: distance   (matched 'distance')
+Token: ;   (matched ';')
+<Declaration> -> <Qualifier> <IDs>
+<Qualifier> -> integer | boolean | real
+Token: boolean   (matched 'boolean')
+<IDs> -> <Identifier> ( , <Identifier> )*
+Token: flag   (matched 'flag')
+Token: ;   (matched ';')
+<Statement List> -> (<Statement>)*
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: x   (matched 'x')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 5   (matched '5')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: y   (matched 'y')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 10   (matched '10')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: z   (matched 'z')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 20   (matched '20')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: total   (matched 'total')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: x   (matched 'x')
+<TermPrime> -> ε
+<ExpressionPrime> -> + <Term> <ExpressionPrime>
+Token: +   (matched '+')
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: y   (matched 'y')
+<TermPrime> -> ε
+<ExpressionPrime> -> + <Term> <ExpressionPrime>
+Token: +   (matched '+')
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: z   (matched 'z')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: average   (matched 'average')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: total   (matched 'total')
+<TermPrime> -> / <Factor> <TermPrime>
+Token: /   (matched '/')
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 3   (matched '3')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: rate   (matched 'rate')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 2   (matched '2')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: time   (matched 'time')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 4   (matched '4')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: distance   (matched 'distance')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: rate   (matched 'rate')
+<TermPrime> -> * <Factor> <TermPrime>
+Token: *   (matched '*')
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: time   (matched 'time')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: flag   (matched 'flag')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: true   (matched 'true')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: x   (matched 'x')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: x   (matched 'x')
+<TermPrime> -> ε
+<ExpressionPrime> -> + <Term> <ExpressionPrime>
+Token: +   (matched '+')
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 1   (matched '1')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: y   (matched 'y')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: y   (matched 'y')
+<TermPrime> -> ε
+<ExpressionPrime> -> + <Term> <ExpressionPrime>
+Token: +   (matched '+')
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 2   (matched '2')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: z   (matched 'z')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: z   (matched 'z')
+<TermPrime> -> ε
+<ExpressionPrime> -> + <Term> <ExpressionPrime>
+Token: +   (matched '+')
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 3   (matched '3')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: total   (matched 'total')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: x   (matched 'x')
+<TermPrime> -> ε
+<ExpressionPrime> -> + <Term> <ExpressionPrime>
+Token: +   (matched '+')
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: y   (matched 'y')
+<TermPrime> -> ε
+<ExpressionPrime> -> + <Term> <ExpressionPrime>
+Token: +   (matched '+')
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: z   (matched 'z')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: average   (matched 'average')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: total   (matched 'total')
+<TermPrime> -> / <Factor> <TermPrime>
+Token: /   (matched '/')
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 3   (matched '3')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+Parsing completed successfully.

@@ -1,44 +1,13 @@
 Lexical Analysis Complete. Tokens and Lexemes will be printed:
-0: TokenType: identifier  Lexeme: function
-1: TokenType: identifier  Lexeme: convert
-2: TokenType: separator   Lexeme: (
-3: TokenType: identifier  Lexeme: fahr
-4: TokenType: identifier  Lexeme: integer
-5: TokenType: separator   Lexeme: )
-6: TokenType: separator   Lexeme: {
-7: TokenType: identifier  Lexeme: convert
-8: TokenType: operator   Lexeme: =
-9: TokenType: integer   Lexeme: 5
-10: TokenType: operator   Lexeme: *
-11: TokenType: separator   Lexeme: (
-12: TokenType: identifier  Lexeme: fahr
-13: TokenType: operator   Lexeme: -
-14: TokenType: integer   Lexeme: 32
-15: TokenType: separator   Lexeme: )
-16: TokenType: operator   Lexeme: /
-17: TokenType: integer   Lexeme: 9
-18: TokenType: separator   Lexeme: ;
-19: TokenType: separator   Lexeme: }
-20: TokenType: invalid  Lexeme: #
-21: TokenType: identifier  Lexeme: integer
-22: TokenType: identifier  Lexeme: low
-23: TokenType: separator   Lexeme: ,
-24: TokenType: identifier  Lexeme: high
-25: TokenType: separator   Lexeme: ,
-26: TokenType: identifier  Lexeme: step
-27: TokenType: separator   Lexeme: ;
-28: TokenType: identifier  Lexeme: low
-29: TokenType: operator   Lexeme: =
-30: TokenType: integer   Lexeme: 0
-31: TokenType: separator   Lexeme: ;
-32: TokenType: identifier  Lexeme: high
-33: TokenType: operator   Lexeme: =
-34: TokenType: integer   Lexeme: 100
-35: TokenType: separator   Lexeme: ;
-36: TokenType: identifier  Lexeme: step
-37: TokenType: operator   Lexeme: =
-38: TokenType: integer   Lexeme: 10
-39: TokenType: separator   Lexeme: ;
+0: TokenType: invalid  Lexeme: #
+1: TokenType: identifier  Lexeme: integer
+2: TokenType: identifier  Lexeme: c
+3: TokenType: separator   Lexeme: ;
+4: TokenType: identifier  Lexeme: c
+5: TokenType: operator   Lexeme: =
+6: TokenType: identifier  Lexeme: a
+7: TokenType: operator   Lexeme: +
+8: TokenType: identifier  Lexeme: b
 
 Starting Syntax Analysis...
 

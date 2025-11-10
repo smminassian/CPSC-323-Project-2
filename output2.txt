@@ -1,0 +1,154 @@
+Processing Rat25f2.txt...
+Starting lexical analysis...
+Lexical Analysis Complete. Tokens and Lexemes will be printed:
+0: TokenType: identifier  Lexeme: function
+1: TokenType: identifier  Lexeme: convert
+2: TokenType: separator   Lexeme: (
+3: TokenType: identifier  Lexeme: fahr
+4: TokenType: identifier  Lexeme: integer
+5: TokenType: separator   Lexeme: )
+6: TokenType: separator   Lexeme: {
+7: TokenType: identifier  Lexeme: convert
+8: TokenType: operator   Lexeme: =
+9: TokenType: integer   Lexeme: 5
+10: TokenType: operator   Lexeme: *
+11: TokenType: separator   Lexeme: (
+12: TokenType: identifier  Lexeme: fahr
+13: TokenType: operator   Lexeme: -
+14: TokenType: integer   Lexeme: 32
+15: TokenType: separator   Lexeme: )
+16: TokenType: operator   Lexeme: /
+17: TokenType: integer   Lexeme: 9
+18: TokenType: separator   Lexeme: ;
+19: TokenType: separator   Lexeme: }
+20: TokenType: invalid  Lexeme: #
+21: TokenType: identifier  Lexeme: integer
+22: TokenType: identifier  Lexeme: low
+23: TokenType: separator   Lexeme: ,
+24: TokenType: identifier  Lexeme: high
+25: TokenType: separator   Lexeme: ,
+26: TokenType: identifier  Lexeme: step
+27: TokenType: separator   Lexeme: ;
+28: TokenType: identifier  Lexeme: low
+29: TokenType: operator   Lexeme: =
+30: TokenType: integer   Lexeme: 0
+31: TokenType: separator   Lexeme: ;
+32: TokenType: identifier  Lexeme: high
+33: TokenType: operator   Lexeme: =
+34: TokenType: integer   Lexeme: 100
+35: TokenType: separator   Lexeme: ;
+36: TokenType: identifier  Lexeme: step
+37: TokenType: operator   Lexeme: =
+38: TokenType: integer   Lexeme: 10
+39: TokenType: separator   Lexeme: ;
+
+Starting Syntax Analysis...
+
+<Rat25F> -> <Opt Function Definitions> # <Opt Declaration List> <Statement List>
+<Opt Function Definitions> -> <Function Definitions>
+<Function Definitions> -> <Function> <Function Definitions> | <Function>
+<Function> -> function <Identifier> ( <Opt Parameter List> ) <Opt Declaration List> <Body>
+Token: function   (matched 'function')
+Token: convert   (matched 'convert')
+Token: (   (matched '(')
+<Opt Parameter List> -> <Parameter List>
+<Parameter List> -> <Parameter> ( , <Parameter> )*
+<Parameter> -> <IDs> <Qualifier>
+<IDs> -> <Identifier> ( , <Identifier> )*
+Token: fahr   (matched 'fahr')
+<Qualifier> -> integer | boolean | real
+Token: integer   (matched 'integer')
+Token: )   (matched ')')
+<Opt Declaration List> -> ε
+<Body> -> { <Statement List> }
+Token: {   (matched '{')
+<Statement List> -> (<Statement>)*
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: convert   (matched 'convert')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 5   (matched '5')
+<TermPrime> -> * <Factor> <TermPrime>
+Token: *   (matched '*')
+<Factor> -> <Primary>
+<Primary> -> ( <Expression> )
+Token: (   (matched '(')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: fahr   (matched 'fahr')
+<TermPrime> -> ε
+<ExpressionPrime> -> - <Term> <ExpressionPrime>
+Token: -   (matched '-')
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 32   (matched '32')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: )   (matched ')')
+<TermPrime> -> / <Factor> <TermPrime>
+Token: /   (matched '/')
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 9   (matched '9')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+Token: }   (matched '}')
+Token: #   (matched '#')
+<Opt Declaration List> -> <Declaration List>
+<Declaration List> -> <Declaration> ; ( <Declaration> ; )*
+<Declaration> -> <Qualifier> <IDs>
+<Qualifier> -> integer | boolean | real
+Token: integer   (matched 'integer')
+<IDs> -> <Identifier> ( , <Identifier> )*
+Token: low   (matched 'low')
+Token: ,   (matched ',')
+Token: high   (matched 'high')
+Token: ,   (matched ',')
+Token: step   (matched 'step')
+Token: ;   (matched ';')
+<Statement List> -> (<Statement>)*
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: low   (matched 'low')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 0   (matched '0')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: high   (matched 'high')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 100   (matched '100')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: step   (matched 'step')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Integer|Real>
+Token: 10   (matched '10')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+Parsing completed successfully.

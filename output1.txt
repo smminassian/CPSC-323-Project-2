@@ -1,0 +1,48 @@
+Processing Rat25f.txt...
+Starting lexical analysis...
+Lexical Analysis Complete. Tokens and Lexemes will be printed:
+0: TokenType: invalid  Lexeme: #
+1: TokenType: identifier  Lexeme: integer
+2: TokenType: identifier  Lexeme: c
+3: TokenType: separator   Lexeme: ;
+4: TokenType: identifier  Lexeme: c
+5: TokenType: operator   Lexeme: =
+6: TokenType: identifier  Lexeme: a
+7: TokenType: operator   Lexeme: +
+8: TokenType: identifier  Lexeme: b
+9: TokenType: separator   Lexeme: ;
+
+Starting Syntax Analysis...
+
+<Rat25F> -> <Opt Function Definitions> # <Opt Declaration List> <Statement List>
+<Opt Function Definitions> -> ε
+Token: #   (matched '#')
+<Opt Declaration List> -> <Declaration List>
+<Declaration List> -> <Declaration> ; ( <Declaration> ; )*
+<Declaration> -> <Qualifier> <IDs>
+<Qualifier> -> integer | boolean | real
+Token: integer   (matched 'integer')
+<IDs> -> <Identifier> ( , <Identifier> )*
+Token: c   (matched 'c')
+Token: ;   (matched ';')
+<Statement List> -> (<Statement>)*
+<Statement> -> <Assign>
+<Assign> -> <Identifier> = <Expression> ;
+Token: c   (matched 'c')
+Token: =   (matched '=')
+<Expression> -> <Term> <ExpressionPrime>
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: a   (matched 'a')
+<TermPrime> -> ε
+<ExpressionPrime> -> + <Term> <ExpressionPrime>
+Token: +   (matched '+')
+<Term> -> <Factor> <TermPrime>
+<Factor> -> <Primary>
+<Primary> -> <Identifier>
+Token: b   (matched 'b')
+<TermPrime> -> ε
+<ExpressionPrime> -> ε
+Token: ;   (matched ';')
+Parsing completed successfully.

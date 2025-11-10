@@ -481,38 +481,58 @@ void Primary() {
 
 
 int main() {
-    ifstream myFile("Rat25f.txt");
-    if (!myFile) {
-        cerr << "Error opening file 'Rat25f.txt'." << endl;
-        return 1;
-    }
+    vector<string> testFiles = {"Rat25f.txt", "Rat25f2.txt", "Rat25f3.txt"};
 
-    ofstream outFile("output.txt");
-    if (!outFile) {
-        cerr << "Error creating output file 'output.txt'." << endl;
+    for (size_t t = 0; t < testFiles.size(); ++t) {
+        string inputFile = testFiles[t];
+        string outputFile = "output" + to_string(t + 1) + ".txt";
+
+        ifstream myFile(inputFile);
+        if (!myFile) {
+            cerr << "Error opening file '" << inputFile << "'." << endl;
+            continue;
+        }
+
+        ofstream outFile(outputFile);
+        if (!outFile) {
+            cerr << "Error creating output file '" << outputFile << "'." << endl;
+            myFile.close();
+            continue;
+        }
+
+        cout << "Processing " << inputFile << "..." << endl;
+        outFile << "Processing " << inputFile << "..." << endl;
+
+        cout << "Starting lexical analysis..." << endl;
+        outFile << "Starting lexical analysis..." << endl;
+
+        globalToken = lexer(myFile);
+
+        cout << "Lexical Analysis Complete. Tokens and Lexemes will be printed:" << endl;
+        outFile << "Lexical Analysis Complete. Tokens and Lexemes will be printed:" << endl;
+
+        for (size_t i = 0; i < globalToken.lexeme.size(); ++i) {
+            string tokenStr = (i < globalToken.token.size() ? globalToken.token[i] : "??");
+            cout << i << ": TokenType: " << tokenStr << "  Lexeme: " << globalToken.lexeme[i] << endl;
+            outFile << i << ": TokenType: " << tokenStr << "  Lexeme: " << globalToken.lexeme[i] << endl;
+        }
+
+        indexPos = 0;
+        cout << "\nStarting Syntax Analysis...\n" << endl;
+        outFile << "\nStarting Syntax Analysis...\n" << endl;
+
+        streambuf* oldCoutBuf = cout.rdbuf();
+        cout.rdbuf(outFile.rdbuf());
+
+        Rat25F();
+
+        cout.rdbuf(oldCoutBuf); 
+
         myFile.close();
-        return 1;
+        outFile.close();
+
+        cout << "Finished processing " << inputFile << ". Output saved to " << outputFile << "\n" << endl;
     }
 
-    cout << "Starting lexical analysis..." << endl;
-    globalToken = lexer(myFile);
-
-    cout << "Lexical Analysis Complete. Tokens and Lexemes will be printed:" << endl;
-    outFile << "Lexical Analysis Complete. Tokens and Lexemes will be printed:" << endl;
-
-    for (size_t i = 0; i < globalToken.lexeme.size(); ++i) {
-        string tokenStr = (i < globalToken.token.size() ? globalToken.token[i] : "??");
-        cout << i << ": TokenType: " << tokenStr << "  Lexeme: " << globalToken.lexeme[i] << endl;
-        outFile << i << ": TokenType: " << tokenStr << "  Lexeme: " << globalToken.lexeme[i] << endl;
-    }
-
-    indexPos = 0;
-    cout << "\nStarting Syntax Analysis...\n" << endl;
-    outFile << "\nStarting Syntax Analysis...\n" << endl;
-
-    Rat25F();  
-
-    myFile.close();
-    outFile.close();
     return 0;
 }

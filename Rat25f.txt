@@ -1,11 +1,4 @@
-" this is comment for this sample code which converts Fahrenheit into Celcius "
-
-
-function convert(fahr integer) {
-    convert = 5 * (fahr - 32) / 9;
-}
+"this comment should be ignored"
 #
-integer low, high, step;
-low = 0;
-high = 100;
-step = 10;
+integer c;
+c = a + b;

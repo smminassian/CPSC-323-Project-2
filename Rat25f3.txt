@@ -1,0 +1,26 @@
+function computeSum(a integer, b integer)
+{
+    result = a + b;
+}
+
+#
+integer x, y, z;
+integer total, average, count;
+real rate, time, distance;
+boolean flag;
+
+x = 5;
+y = 10; 
+z = 20;
+total = x + y + z;
+average = total / 3;
+rate = 2;
+time = 4; "this comment should be ignored"
+distance = rate * time;
+flag = true;
+
+x = x + 1;
+y = y + 2;
+z = z + 3;
+total = x + y + z;
+average = total / 3;
