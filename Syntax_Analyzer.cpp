@@ -108,17 +108,17 @@ void Match(const string &expected)
     {
         syntaxError("Expected '" + expected + "' but found EOF");
     }
-    string cur = currentToken();
+    string tok = currentToken();
     string lex = currentLexeme();
-    if (cur == expected || lex == expected)
+    if (tok == expected || lex == expected)
     {
         if (printSwitch)
-            cout << "Token: " << cur << "   (matched '" << expected << "')" << endl;
+            cout << "Token: " << tok << "   (matched '" << lex << "')" << endl;
         indexPos++;
     }
     else
     {
-        syntaxError("Expected '" + expected + "' but found '" + cur + "'");
+        syntaxError("Expected '" + expected + "' but found '" + tok + "'");
     }
 }
 
@@ -335,14 +335,13 @@ void StatementList()
         string lex = currentLexeme();
         string tok = currentToken();
 
-        cout << "In StatementList, current lexeme: " << lex << ", token: " << tok << endl;
-        
-        if (lex == "{" || tok == "identifier " || lex == "if" || lex == "return" || lex == "put" || lex == "get" || lex == "while")
+        if (lex == "{" || tok == "identifier" || lex == "if" || lex == "return" || lex == "put" || lex == "get" || lex == "while")
         {
             Statement();
         }
         else
         {
+            cout << "am i here " << endl;
             break;
         }
     }
@@ -350,14 +349,17 @@ void StatementList()
 
 void Statement()
 {
+
+    
     string lex = currentLexeme();
+    string tok = currentToken();
     if (lex == "{")
     {
         if (printSwitch)
             cout << "<Statement> -> <Compound>" << endl;
         Compound();
     }
-    else if (lex == "Assign")
+    else if (tok == "identifier")
     {
         if (printSwitch)
             cout << "<Statement> -> <Assign>" << endl;
@@ -411,13 +413,14 @@ void Compound()
 void Assign()
 {
     string tok = currentToken();
+    string lex = currentLexeme();
     if (printSwitch)
         cout << "<Assign> -> <Identifier> = <Expression> ;" << endl;
-    if (tok != "identifier ")
+    if (tok != "identifier")
     {
         syntaxError("Expected identifier at start of assignment");
     }
-    Match(tok);
+    Match(lex);
     Match("=");
     Expression();
     Match(";");
@@ -544,7 +547,6 @@ void ExpressionPrime()
 
 void Term()
 {
-    string tok = currentToken();
     if (printSwitch)
         cout << "<Term> -> <Factor> <TermPrime>" << endl;
     Factor();
@@ -594,7 +596,7 @@ void Primary()
 
     if (tok.empty())
         syntaxError("Unexpected EOF in <Primary>");
-    if (tok == "identifier ")
+    if (tok == "identifier")
     {
         string idTok = tok;
         if ((indexPos + 1) < (int)globalToken.lexeme.size() && globalToken.lexeme[indexPos + 1] == "(")
@@ -603,7 +605,7 @@ void Primary()
                 cout << "<Primary> -> <Identifier> ( <IDs> )" << endl;
             Match(idTok);
             Match("(");
-            if (currentToken() == "identifier ")
+            if (idTok == "identifier")
             {
                 IDs();
             }
@@ -628,6 +630,7 @@ void Primary()
     }
     else if (lex == "(")
     {
+        
         if (printSwitch)
             cout << "<Primary> -> ( <Expression> )" << endl;
         Match("(");
@@ -636,8 +639,9 @@ void Primary()
     }
     else if (lex == "true" || lex == "false")
     {
+       
         if (printSwitch)
-            cout << "<Primary> -> " << lex << endl;
+            cout << "<Primary> ->" << lex << endl;
         Match(lex);
     }
     else
