@@ -7,7 +7,7 @@
 using namespace std;
 
 
-
+Token globalToken;
 
 Token lexer(ifstream &myFile)
 {

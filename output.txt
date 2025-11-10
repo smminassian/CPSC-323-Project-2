@@ -1,0 +1,4 @@
+Lexical Analysis Complete. Tokens and Lexemes will be printed as consumed.
+<Statement List> -> epsilon
+Syntax Error: line 1: expected end of input (EOF), found KEYWORD (read) at token index 0.
+Context:  >>[KEYWORD:read]<<  [IDENTIFIER:n] [SEPARATOR:;] 
