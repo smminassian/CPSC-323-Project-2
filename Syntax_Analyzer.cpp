@@ -54,6 +54,28 @@ void NextToken()
     }
 }
 
+void match(string expectedLexeme)
+{
+    if (indexPos < globalToken.lexeme.size())
+    {
+        if (globalToken.lexeme[indexPos] == expectedLexeme)
+        {
+            cout << "Matched Token: " << globalToken.token[indexPos] << " Lexeme: " << globalToken.lexeme[indexPos] << endl;
+            indexPos++;
+        }
+        else
+        {
+            cerr << "Syntax Error: Expected token " << expectedLexeme << " but found " << globalToken.token[indexPos] << " Lexeme: " << globalToken.lexeme[indexPos] << endl;
+            exit(1);
+        }
+    }
+    else
+    {
+        cerr << "Syntax Error: No more tokens available to match." << endl;
+        exit(1);
+    }
+}
+
 int main(){
      ifstream myFile("Rat25f.txt");
      if(!myFile){
