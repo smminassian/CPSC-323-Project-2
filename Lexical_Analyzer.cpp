@@ -276,7 +276,7 @@ string NumberFSM(const string &input)
 
 string checkKeyword(const string &input)
 {
-	if (input == "if" || input == "then" || input == "else" || input == "end" || input == "repeat" || input == "until" || input == "read" || input == "write" || input == "begin" || input == "while")
+	if (input == "if" || input == "else" || input == "fi" || input == "while" || input == "return" || input == "put" || input == "get" || input == "integer" || input == "boolean" || input == "real" || input == "true" || input == "false")
 	{
 		return "keyword ";
 	}
