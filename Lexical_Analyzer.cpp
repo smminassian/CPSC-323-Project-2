@@ -186,7 +186,7 @@ string IdentifierFSM(const string &input)
 		}
 	}
 
-	if (state == IdValid || state == IdInvalid)
+	if (state == IdValid)
 	{
 		return "identifier";
 	}
