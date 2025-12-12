@@ -168,7 +168,7 @@ string IdentifierFSM(const string &input)
 		}
 	}
 
-	if (state == IdValid || state == IdInvalid)
+	if (state == IdValid)
 	{
 		return "identifier";
 	}
@@ -258,7 +258,7 @@ string NumberFSM(const string &input)
 
 string checkKeyword(const string &input)
 {
-	if (input == "if" || input == "then" || input == "else" || input == "end" || input == "repeat" || input == "until" || input == "read" || input == "write" || input == "begin" || input == "while")
+	if (input == "if" || input == "else" || input == "fi" || input == "while" || input == "return" || input == "put" || input == "get" || input == "integer" || input == "boolean" || input == "real" || input == "true" || input == "false")
 	{
 		return "keyword ";
 	}
@@ -282,7 +282,7 @@ string checkOperator(const string &input)
 
 string checkSeparator(const string &input)
 {
-	if (input == ";" || input == "," || input == "(" || input == ")" || input == "{" || input == "}" || input == "[" || input == "]")
+	if (input == ";" || input == "," || input == "(" || input == ")" || input == "{" || input == "}" || input == "[" || input == "]" || input == "#")
 	{
 		return "separator ";
 	}
