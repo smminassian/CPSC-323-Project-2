@@ -18,7 +18,7 @@ Lexical Analysis Complete. Tokens and Lexemes will be printed:
 14: TokenType: identifier  Lexeme: b
 15: TokenType: separator   Lexeme: ;
 16: TokenType: separator   Lexeme: }
-17: TokenType: invalid  Lexeme: #
+17: TokenType: operator   Lexeme: #
 18: TokenType: identifier  Lexeme: integer
 19: TokenType: identifier  Lexeme: x
 20: TokenType: separator   Lexeme: ,
@@ -167,7 +167,7 @@ identifier b
 <ExpressionPrime> -> ε
 separator  ;
 separator  }
-invalid #
+operator  #
 <Opt Declaration List> -> <Declaration List>
 <Declaration List> -> <Declaration> ; ( <Declaration> ; )*
 <Declaration> -> <Qualifier> <IDs>

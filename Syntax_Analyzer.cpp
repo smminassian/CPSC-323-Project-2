@@ -85,38 +85,30 @@ string currentLexeme() {
     return ""; 
 }
 
-string currentToken() {
-	if (indexPos < (int)globalToken.token.size()) return globalToken.token[indexPos];
-	return "";
-}
-
 bool atEnd() {
     return indexPos >= (int)globalToken.lexeme.size();
 }
 
+// Error handling function
 void syntaxError(const string &msg) {
     string lex = atEnd() ? "EOF" : currentLexeme();
     cerr << "Syntax Error: " << msg << " at token '" << lex << "' (index " << indexPos << ")" << endl;
     exit(1);
 }
 
+//This is how we match and iterate through the string.
 void Match(const string &expected) {
     if (atEnd()) {
         syntaxError("Expected '" + expected + "' but found EOF");
     }
-
-    string cur = currentToken();
-    string lex = currentLexeme();
-
-    if (cur == expected || lex == expected) {
-        if (printSwitch)
-            cout << cur << " " << lex << endl;  
+    string cur = currentLexeme();
+    if (cur == expected) {
+        if (printSwitch) cout << "Token: " << cur << "   (matched '" << expected << "')" << endl;
         indexPos++;
     } else {
         syntaxError("Expected '" + expected + "' but found '" + cur + "'");
     }
 }
-
 
 
 // parsing functions
@@ -165,6 +157,7 @@ void FunctionDefinitions() {
 
 // <Function> ::= function <Identifier> ( <Opt Parameter List> ) <Opt Declaration List> <Body>
 void Function() {
+    
     if (printSwitch) cout << "<Function> -> function <Identifier> ( <Opt Parameter List> ) <Opt Declaration List> <Body>" << endl;
     Match("function");
     if (isIdentifierLexeme(currentLexeme())) {
@@ -276,6 +269,7 @@ void IDs() {
     }
 }
 
+//Statement list rules
 void StatementList() {
     if (printSwitch) cout << "<Statement List> -> (<Statement>)*" << endl;
     while (!atEnd()) {
@@ -316,6 +310,7 @@ void Statement() {
     }
 }
 
+//This function handles the brackets of compound statements.
 void Compound() {
     if (printSwitch) cout << "<Compound> -> { <Statement List> }" << endl;
     Match("{");
@@ -323,6 +318,7 @@ void Compound() {
     Match("}");
 }
 
+//This function handles assignment statements like x = 5, etc.
 void Assign() {
     if (printSwitch) cout << "<Assign> -> <Identifier> = <Expression> ;" << endl;
     if (!isIdentifierLexeme(currentLexeme())) {
@@ -334,6 +330,7 @@ void Assign() {
     Match(";");
 }
 
+//This function handles if statements. This was originally ambiguous so we changed it from double if to if else if else
 void IfStmt() {
     if (printSwitch) cout << "<If> -> if ( <Condition> ) <Statement> ( else <Statement> )? fi" << endl;
     Match("if");
@@ -352,6 +349,7 @@ void IfStmt() {
     }
 }
 
+
 void ReturnStmt() {
     if (printSwitch) cout << "<Return> -> return ( <Expression> | ε ) ;" << endl;
     Match("return");
@@ -361,6 +359,7 @@ void ReturnStmt() {
     Match(";");
 }
 
+//This function handles print statements. So if i want to cout << something.
 void PrintStmt() {
     if (printSwitch) cout << "<Print> -> put ( <Expression> ) ;" << endl;
     Match("put");
@@ -370,6 +369,7 @@ void PrintStmt() {
     Match(";");
 }
 
+//this function handles scan statements. So if i want to cin >> something.
 void ScanStmt() {
     if (printSwitch) cout << "<Scan> -> get ( <IDs> ) ;" << endl;
     Match("get");
@@ -379,6 +379,7 @@ void ScanStmt() {
     Match(";");
 }
 
+//This function handles while statements. 
 void WhileStmt() {
     if (printSwitch) cout << "<While> -> while ( <Condition> ) <Statement>" << endl;
     Match("while");
@@ -388,6 +389,7 @@ void WhileStmt() {
     Statement();
 }
 
+//This function handles conditions within if and while statements.
 void Condition() {
     if (printSwitch) cout << "<Condition> -> <Expression> <Relop> <Expression>" << endl;
     Expression();
@@ -395,6 +397,7 @@ void Condition() {
     Expression();
 }
 
+//This function handles relational operators.
 void Relop() {
     if (printSwitch) cout << "<Relop> -> == | != | > | < | <= | >=" << endl;
     string lex = currentLexeme();
@@ -404,13 +407,14 @@ void Relop() {
         syntaxError("Expected a relational operator (==, !=, >, <, <=, >=)");
     }
 }
-
+//This function originally had left recursion which we removed by creating ExpressionPrime.
 void Expression() {
     if (printSwitch) cout << "<Expression> -> <Term> <ExpressionPrime>" << endl;
     Term();
     ExpressionPrime();
 }
 
+//This function was the function that was created to remove left recursion from Expression.
 void ExpressionPrime() {
     string lex = currentLexeme();
     if (lex == "+" || lex == "-") {
@@ -423,12 +427,13 @@ void ExpressionPrime() {
     }
 }
 
+//Like Expression, Term had left recursion which we removed by creating TermPrime.
 void Term() {
     if (printSwitch) cout << "<Term> -> <Factor> <TermPrime>" << endl;
     Factor();
     TermPrime();
 }
-
+//This function was the function that was created to remove left recursion from Term.
 void TermPrime() {
     string lex = currentLexeme();
     if (lex == "*" || lex == "/") {
@@ -441,6 +446,7 @@ void TermPrime() {
     }
 }
 
+//This function handles factors, which may include the minus sign cus the minus sign needs to be distributed properly when we have a expression like -5 * (x + 2)
 void Factor() {
     string lex = currentLexeme();
     if (lex == "-") {
@@ -452,7 +458,7 @@ void Factor() {
         Primary();
     }
 }
-
+//This function handles actual values like x, 56, 78, true, false, etc.
 void Primary() {
     string lex = currentLexeme();
     if (lex.empty()) syntaxError("Unexpected EOF in <Primary>");
@@ -489,60 +495,40 @@ void Primary() {
 }
 
 
-
+//Main function to run the lexical and syntax analyzers
 int main() {
-    vector<string> testFiles = {"Rat25f.txt", "Rat25f2.txt", "Rat25f3.txt"};
-
-    for (size_t t = 0; t < testFiles.size(); ++t) {
-        string inputFile = testFiles[t];
-        string outputFile = "output" + to_string(t + 1) + ".txt";
-
-        ifstream myFile(inputFile);
-        if (!myFile) {
-            cerr << "Error opening file '" << inputFile << "'." << endl;
-            continue;
-        }
-
-        ofstream outFile(outputFile);
-        if (!outFile) {
-            cerr << "Error creating output file '" << outputFile << "'." << endl;
-            myFile.close();
-            continue;
-        }
-
-        cout << "Processing " << inputFile << "..." << endl;
-        outFile << "Processing " << inputFile << "..." << endl;
-
-        cout << "Starting lexical analysis..." << endl;
-        outFile << "Starting lexical analysis..." << endl;
-
-        globalToken = lexer(myFile);
-
-        cout << "Lexical Analysis Complete. Tokens and Lexemes will be printed:" << endl;
-        outFile << "Lexical Analysis Complete. Tokens and Lexemes will be printed:" << endl;
-
-        for (size_t i = 0; i < globalToken.lexeme.size(); ++i) {
-            string tokenStr = (i < globalToken.token.size() ? globalToken.token[i] : "??");
-            cout << i << ": TokenType: " << tokenStr << "  Lexeme: " << globalToken.lexeme[i] << endl;
-            outFile << i << ": TokenType: " << tokenStr << "  Lexeme: " << globalToken.lexeme[i] << endl;
-        }
-
-        indexPos = 0;
-        cout << "\nStarting Syntax Analysis...\n" << endl;
-        outFile << "\nStarting Syntax Analysis...\n" << endl;
-
-        streambuf* oldCoutBuf = cout.rdbuf();
-        cout.rdbuf(outFile.rdbuf());
-
-        Rat25F();
-
-        cout.rdbuf(oldCoutBuf); 
-
-        myFile.close();
-        outFile.close();
-
-        cout << "Finished processing " << inputFile << ". Output saved to " << outputFile << "\n" << endl;
+    ifstream myFile("Rat25f.txt");
+    if (!myFile) {
+        cerr << "Error opening file 'Rat25f.txt'." << endl;
+        return 1;
     }
 
+    ofstream outFile("output.txt");
+    if (!outFile) {
+        cerr << "Error creating output file 'output.txt'." << endl;
+        myFile.close();
+        return 1;
+    }
+
+    cout << "Starting lexical analysis..." << endl;
+    globalToken = lexer(myFile);
+
+    cout << "Lexical Analysis Complete. Tokens and Lexemes will be printed:" << endl;
+    outFile << "Lexical Analysis Complete. Tokens and Lexemes will be printed:" << endl;
+
+    for (size_t i = 0; i < globalToken.lexeme.size(); ++i) {
+        string tokenStr = (i < globalToken.token.size() ? globalToken.token[i] : "??");
+        cout << i << ": TokenType: " << tokenStr << "  Lexeme: " << globalToken.lexeme[i] << endl;
+        outFile << i << ": TokenType: " << tokenStr << "  Lexeme: " << globalToken.lexeme[i] << endl;
+    }
+
+    indexPos = 0;
+    cout << "\nStarting Syntax Analysis...\n" << endl;
+    outFile << "\nStarting Syntax Analysis...\n" << endl;
+
+    Rat25F();  
+
+    myFile.close();
+    outFile.close();
     return 0;
 }

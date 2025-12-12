@@ -7,7 +7,7 @@
 using namespace std;
 
 
-Token globalToken;
+
 
 Token lexer(ifstream &myFile)
 {
@@ -19,22 +19,8 @@ Token lexer(ifstream &myFile)
 
     while (getline(myFile, line))
     {
-        size_t i = 0;
-        while (i < line.size())
+        for (char ch : line)
         {
-            char ch = line[i];
-
-            if (ch == '"')
-            {
-                i++;
-                while (i < line.size() && line[i] != '"')
-                {
-                    i++;
-                }
-                i++;
-                continue;
-            }
-
             if (checkSeparator(string(1, ch)) != "invalid" || checkOperator(string(1, ch)) != "invalid")
             {
                 if (!current_lexeme.empty())
@@ -74,8 +60,7 @@ Token lexer(ifstream &myFile)
                     t.token.push_back(checkSeparator(op));
                 }
 
-                i++;
-                continue;
+                continue; 
             }
 
             if (isspace(ch))
@@ -104,12 +89,9 @@ Token lexer(ifstream &myFile)
                     }
                     current_lexeme.clear();
                 }
-                i++;
                 continue;
             }
-
             current_lexeme += ch;
-            i++;
         }
 
         if (!current_lexeme.empty())
@@ -308,20 +290,6 @@ string checkSeparator(const string &input)
 	{
 		return "invalid";
 	}
-}
-
-bool isIdentifierLexeme(const string &lex) {
-    if (lex.empty()) return false;
-    return isalpha((unsigned char)lex[0]);
-}
-
-bool isNumberLexeme(const string &lex) {
-    if (lex.empty()) return false;
-    return isdigit((unsigned char)lex[0]);
-}
-
-bool isRelopLexeme(const string &lex) {
-    return (lex == "==" || lex == "!=" || lex == ">" || lex == "<" || lex == "<=" || lex == ">=");
 }
 
 // int main()

@@ -16,33 +16,3 @@ Starting Syntax Analysis...
 
 <Rat25F> -> <Opt Function Definitions> # <Opt Declaration List> <Statement List>
 <Opt Function Definitions> -> ε
-invalid #
-<Opt Declaration List> -> <Declaration List>
-<Declaration List> -> <Declaration> ; ( <Declaration> ; )*
-<Declaration> -> <Qualifier> <IDs>
-<Qualifier> -> integer | boolean | real
-identifier integer
-<IDs> -> <Identifier> ( , <Identifier> )*
-identifier c
-separator  ;
-<Statement List> -> (<Statement>)*
-<Statement> -> <Assign>
-<Assign> -> <Identifier> = <Expression> ;
-identifier c
-operator  =
-<Expression> -> <Term> <ExpressionPrime>
-<Term> -> <Factor> <TermPrime>
-<Factor> -> <Primary>
-<Primary> -> <Identifier>
-identifier a
-<TermPrime> -> ε
-<ExpressionPrime> -> + <Term> <ExpressionPrime>
-operator  +
-<Term> -> <Factor> <TermPrime>
-<Factor> -> <Primary>
-<Primary> -> <Identifier>
-identifier b
-<TermPrime> -> ε
-<ExpressionPrime> -> ε
-separator  ;
-Parsing completed successfully.
