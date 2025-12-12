@@ -11,14 +11,14 @@ Lexical Analysis Complete. Tokens and Lexemes will be printed:
 9: TokenType: identifier  Lexeme: Fahrenheit
 10: TokenType: identifier  Lexeme: into
 11: TokenType: identifier  Lexeme: Celcius
-12: TokenType: identifier  Lexeme: function
-13: TokenType: identifier  Lexeme: convert
+12: TokenType: keyword   Lexeme: function
+13: TokenType: keyword   Lexeme: convert
 14: TokenType: separator   Lexeme: (
 15: TokenType: identifier  Lexeme: fahr
 16: TokenType: keyword   Lexeme: integer
 17: TokenType: separator   Lexeme: )
 18: TokenType: separator   Lexeme: {
-19: TokenType: identifier  Lexeme: convert
+19: TokenType: keyword   Lexeme: convert
 20: TokenType: operator   Lexeme: =
 21: TokenType: integer   Lexeme: 5
 22: TokenType: operator   Lexeme: *
@@ -51,6 +51,7 @@ Lexical Analysis Complete. Tokens and Lexemes will be printed:
 49: TokenType: operator   Lexeme: =
 50: TokenType: integer   Lexeme: 10
 51: TokenType: separator   Lexeme: ;
+52: TokenType: separator   Lexeme: #
 
 Starting Syntax Analysis...
 
