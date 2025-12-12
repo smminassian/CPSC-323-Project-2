@@ -300,7 +300,7 @@ string checkOperator(const string &input)
 
 string checkSeparator(const string &input)
 {
-	if (input == ";" || input == "," || input == "(" || input == ")" || input == "{" || input == "}" || input == "[" || input == "]")
+	if (input == ";" || input == "," || input == "(" || input == ")" || input == "{" || input == "}" || input == "[" || input == "]" || input == "#")
 	{
 		return "separator ";
 	}
