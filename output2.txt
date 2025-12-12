@@ -1,51 +1,56 @@
-Processing Rat25f2.txt...
-Starting lexical analysis...
 Lexical Analysis Complete. Tokens and Lexemes will be printed:
-0: TokenType: identifier  Lexeme: function
-1: TokenType: identifier  Lexeme: convert
-2: TokenType: separator   Lexeme: (
-3: TokenType: identifier  Lexeme: fahr
-4: TokenType: identifier  Lexeme: integer
-5: TokenType: separator   Lexeme: )
-6: TokenType: separator   Lexeme: {
-7: TokenType: identifier  Lexeme: convert
-8: TokenType: operator   Lexeme: =
-9: TokenType: integer   Lexeme: 5
-10: TokenType: operator   Lexeme: *
-11: TokenType: separator   Lexeme: (
-12: TokenType: identifier  Lexeme: fahr
-13: TokenType: operator   Lexeme: -
-14: TokenType: integer   Lexeme: 32
-15: TokenType: separator   Lexeme: )
-16: TokenType: operator   Lexeme: /
-17: TokenType: integer   Lexeme: 9
-18: TokenType: separator   Lexeme: ;
-19: TokenType: separator   Lexeme: }
-20: TokenType: invalid  Lexeme: #
-21: TokenType: identifier  Lexeme: integer
-22: TokenType: identifier  Lexeme: low
-23: TokenType: separator   Lexeme: ,
-24: TokenType: identifier  Lexeme: high
-25: TokenType: separator   Lexeme: ,
-26: TokenType: identifier  Lexeme: step
-27: TokenType: separator   Lexeme: ;
-28: TokenType: identifier  Lexeme: low
-29: TokenType: operator   Lexeme: =
-30: TokenType: integer   Lexeme: 0
-31: TokenType: separator   Lexeme: ;
-32: TokenType: identifier  Lexeme: high
-33: TokenType: operator   Lexeme: =
-34: TokenType: integer   Lexeme: 100
-35: TokenType: separator   Lexeme: ;
-36: TokenType: identifier  Lexeme: step
-37: TokenType: operator   Lexeme: =
-38: TokenType: integer   Lexeme: 10
+0: TokenType: identifier  Lexeme: this
+1: TokenType: identifier  Lexeme: is
+2: TokenType: identifier  Lexeme: comment
+3: TokenType: identifier  Lexeme: for
+4: TokenType: identifier  Lexeme: this
+5: TokenType: identifier  Lexeme: sample
+6: TokenType: identifier  Lexeme: code
+7: TokenType: identifier  Lexeme: which
+8: TokenType: identifier  Lexeme: converts
+9: TokenType: identifier  Lexeme: Fahrenheit
+10: TokenType: identifier  Lexeme: into
+11: TokenType: identifier  Lexeme: Celcius
+12: TokenType: identifier  Lexeme: function
+13: TokenType: identifier  Lexeme: convert
+14: TokenType: separator   Lexeme: (
+15: TokenType: identifier  Lexeme: fahr
+16: TokenType: keyword   Lexeme: integer
+17: TokenType: separator   Lexeme: )
+18: TokenType: separator   Lexeme: {
+19: TokenType: identifier  Lexeme: convert
+20: TokenType: operator   Lexeme: =
+21: TokenType: integer   Lexeme: 5
+22: TokenType: operator   Lexeme: *
+23: TokenType: separator   Lexeme: (
+24: TokenType: identifier  Lexeme: fahr
+25: TokenType: operator   Lexeme: -
+26: TokenType: integer   Lexeme: 32
+27: TokenType: separator   Lexeme: )
+28: TokenType: operator   Lexeme: /
+29: TokenType: integer   Lexeme: 9
+30: TokenType: separator   Lexeme: ;
+31: TokenType: separator   Lexeme: }
+32: TokenType: separator   Lexeme: #
+33: TokenType: keyword   Lexeme: integer
+34: TokenType: identifier  Lexeme: low
+35: TokenType: separator   Lexeme: ,
+36: TokenType: identifier  Lexeme: high
+37: TokenType: separator   Lexeme: ,
+38: TokenType: identifier  Lexeme: step
 39: TokenType: separator   Lexeme: ;
+40: TokenType: identifier  Lexeme: low
+41: TokenType: operator   Lexeme: =
+42: TokenType: integer   Lexeme: 0
+43: TokenType: separator   Lexeme: ;
+44: TokenType: identifier  Lexeme: high
+45: TokenType: operator   Lexeme: =
+46: TokenType: integer   Lexeme: 100
+47: TokenType: separator   Lexeme: ;
+48: TokenType: identifier  Lexeme: step
+49: TokenType: operator   Lexeme: =
+50: TokenType: integer   Lexeme: 10
+51: TokenType: separator   Lexeme: ;
 
 Starting Syntax Analysis...
 
-<Rat25F> -> <Opt Function Definitions> # <Opt Declaration List> <Statement List>
-<Opt Function Definitions> -> <Function Definitions>
-<Function Definitions> -> <Function> <Function Definitions> | <Function>
-<Function> -> function <Identifier> ( <Opt Parameter List> ) <Opt Declaration List> <Body>
-Token: function   (matched 'function')

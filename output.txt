@@ -1,13 +1,19 @@
 Lexical Analysis Complete. Tokens and Lexemes will be printed:
-0: TokenType: invalid  Lexeme: #
-1: TokenType: identifier  Lexeme: integer
-2: TokenType: identifier  Lexeme: c
-3: TokenType: separator   Lexeme: ;
-4: TokenType: identifier  Lexeme: c
-5: TokenType: operator   Lexeme: =
-6: TokenType: identifier  Lexeme: a
-7: TokenType: operator   Lexeme: +
-8: TokenType: identifier  Lexeme: b
+0: TokenType: identifier  Lexeme: this
+1: TokenType: identifier  Lexeme: comment
+2: TokenType: identifier  Lexeme: should
+3: TokenType: identifier  Lexeme: be
+4: TokenType: separator   Lexeme: #
+5: TokenType: keyword   Lexeme: integer
+6: TokenType: identifier  Lexeme: c
+7: TokenType: separator   Lexeme: ;
+8: TokenType: identifier  Lexeme: c
+9: TokenType: operator   Lexeme: =
+10: TokenType: identifier  Lexeme: a
+11: TokenType: operator   Lexeme: +
+12: TokenType: identifier  Lexeme: b
+13: TokenType: separator   Lexeme: ;
+14: TokenType: separator   Lexeme: #
 
 Starting Syntax Analysis...
 

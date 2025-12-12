@@ -7,11 +7,12 @@
 using namespace std;
 
 
-
+Token globalToken;
 
 Token lexer(ifstream &myFile)
 {
     Token t;
+	int ix = 0;
     string line;
     cout << "Starting lexical analysis..." << endl;
 
@@ -19,8 +20,22 @@ Token lexer(ifstream &myFile)
 
     while (getline(myFile, line))
     {
+		
         for (char ch : line)
         {
+
+			if (ch == '"'){
+				current_lexeme.clear();
+				ix++;
+
+			
+				while(ix < line.size() && line[ix] != '"'){
+					cout << "Here is line[ix]: " << line[ix] << endl;
+					ix++;
+				}
+				continue;
+			}
+			cout << "Am i here "<< endl;
             if (checkSeparator(string(1, ch)) != "invalid" || checkOperator(string(1, ch)) != "invalid")
             {
                 if (!current_lexeme.empty())
@@ -168,7 +183,7 @@ string IdentifierFSM(const string &input)
 		}
 	}
 
-	if (state == IdValid)
+	if (state == IdValid || state == IdInvalid)
 	{
 		return "identifier";
 	}
@@ -292,6 +307,17 @@ string checkSeparator(const string &input)
 	}
 }
 
+bool isIdentifierLexeme(const string &lex) {
+    return !lex.empty() && isalpha(lex[0]);
+}
+
+bool isNumberLexeme(const string &lex) {
+    return !lex.empty() && isdigit(lex[0]);
+}
+
+bool isRelopLexeme(const string &lex) {
+    return lex=="=="||lex=="!="||lex==">"||lex=="<"||lex=="<="||lex==">=";
+}
 // int main()
 // {
 //     // Input and output filenames

@@ -41,7 +41,7 @@ R29. <Empty> ::= ε
 #include <string>
 using namespace std;
 
-extern Token globalToken; 
+
 int indexPos = 0;
 bool printSwitch = true; 
 
@@ -497,13 +497,13 @@ void Primary() {
 
 //Main function to run the lexical and syntax analyzers
 int main() {
-    ifstream myFile("Rat25f.txt");
+    ifstream myFile("Rat25f2.txt");
     if (!myFile) {
         cerr << "Error opening file 'Rat25f.txt'." << endl;
         return 1;
     }
 
-    ofstream outFile("output.txt");
+    ofstream outFile("output2.txt");
     if (!outFile) {
         cerr << "Error creating output file 'output.txt'." << endl;
         myFile.close();
